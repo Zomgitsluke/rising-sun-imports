@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Rising Sun Imports – Raleigh, NC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#fffdf6;--white:#ffffff;
+  --yellow:#f5c842;--gold:#d4a000;--yellow-lt:#fff8d6;
+  --blue:#1a3a5c;--blue-mid:#2c5f8a;--blue-lt:#d6e8f7;--blue-dark:#0f2236;
+  --text:#1a2e40;--muted:#5e7a93;--border:#e8f0f8;
+  --radius:12px;--shadow:0 4px 24px rgba(26,58,92,.09);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:var(--blue-dark);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:68px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo svg{width:36px;height:36px;}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:white;line-height:1.2;}
+.logo-text span{color:var(--yellow);}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--yellow);}
+.nav-phone{color:var(--yellow);font-weight:600;font-size:.9rem;}
+.nav-cta{background:var(--yellow);color:var(--blue-dark)!important;padding:9px 20px;border-radius:50px;font-weight:600!important;transition:background .2s, transform .2s;}
+.nav-cta:hover{background:var(--gold);color:white!important;transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 60%,var(--blue-mid) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:100px 24px 60px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(245,200,66,.12) 0%,transparent 70%);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,200,66,.15);border:1px solid rgba(245,200,66,.35);
+  color:var(--yellow);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 18px;border-radius:50px;margin-bottom:28px;position:relative;
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.6rem,6vw,4.8rem);font-weight:700;
+  color:white;line-height:1.08;margin-bottom:22px;
+  position:relative;max-width:800px;
+}
+.hero h1 em{color:var(--yellow);font-style:italic;}
+.hero p{
+  color:rgba(255,255,255,.7);font-size:1.1rem;line-height:1.7;
+  max-width:560px;margin-bottom:36px;position:relative;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;position:relative;margin-bottom:56px;}
+.btn-yellow{background:var(--yellow);color:var(--blue-dark);padding:14px 32px;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s;}
+.btn-yellow:hover{background:var(--gold);color:white;transform:translateY(-2px);}
+.btn-white-outline{border:2px solid rgba(255,255,255,.4);color:white;padding:13px 28px;border-radius:50px;font-weight:500;font-size:.95rem;text-decoration:none;transition:all .2s;}
+.btn-white-outline:hover{border-color:white;background:rgba(255,255,255,.1);}
+.trust-strip{
+  display:flex;gap:32px;flex-wrap:wrap;justify-content:center;
+  position:relative;padding-top:40px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.trust-item{color:rgba(255,255,255,.85);font-size:.82rem;font-weight:500;display:flex;align-items:center;gap:8px;}
+.trust-item .dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);flex-shrink:0;}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--yellow);padding:24px 48px;display:flex;justify-content:center;gap:64px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--blue-dark);line-height:1;}
+.stat-label{font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-top:2px;}
+
+/* ── SECTION SHARED ── */
+section{padding:88px 48px;}
+.section-label{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:var(--blue);line-height:1.18;margin-bottom:16px;}
+.section-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:540px;}
+.centered{text-align:center;}
+.centered .section-sub{margin:0 auto;}
+
+/* ── WHY BADGES (roofmethods-style icon strip) ── */
+.badges-section{background:var(--blue-lt);padding:40px 48px;}
+.badges-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;}
+.badge-item{background:white;border-radius:var(--radius);padding:22px 20px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow);}
+.badge-icon{font-size:1.8rem;margin-bottom:10px;}
+.badge-title{font-size:.88rem;font-weight:600;color:var(--blue);line-height:1.3;}
+
+/* ── INVENTORY ── */
+#inventory{background:var(--cream);}
+.inventory-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:20px;}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;}
+.filter-btn{padding:8px 18px;border:1.5px solid var(--border);background:white;color:var(--blue);border-radius:50px;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:var(--blue);color:white;border-color:var(--blue);}
+.car-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
+.car-card{background:white;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:transform .25s,box-shadow .25s;}
+.car-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,58,92,.13);}
+.car-img{height:190px;display:flex;align-items:center;justify-content:center;}
+.car-img svg{width:72px;opacity:.28;}
+.car-body{padding:18px 20px 22px;}
+.car-badge-pill{display:inline-block;background:var(--yellow-lt);color:var(--gold);font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:50px;margin-bottom:8px;}
+.car-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--blue);margin-bottom:3px;}
+.car-sub{color:var(--muted);font-size:.83rem;margin-bottom:14px;}
+.car-specs{display:flex;gap:12px;font-size:.78rem;color:var(--muted);margin-bottom:16px;flex-wrap:wrap;}
+.car-specs span{display:flex;align-items:center;gap:4px;}
+.car-specs span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--yellow);flex-shrink:0;}
+.car-footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border);}
+.car-price{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:700;color:var(--blue);}
+.car-cta{background:var(--yellow);color:var(--blue-dark);border:none;padding:9px 18px;border-radius:50px;font-size:.82rem;font-weight:600;cursor:pointer;transition:background .2s;font-family:'DM Sans',sans-serif;}
+.car-cta:hover{background:var(--gold);color:white;}
+
+/* ── PROCESS ── */
+#process{background:white;}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-top:56px;}
+.process-card{text-align:center;padding:32px 24px;border-radius:var(--radius);border:1px solid var(--border);position:relative;}
+.step-num{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--yellow);color:var(--blue-dark);
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;
+}
+.process-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--blue);margin-bottom:10px;}
+.process-card p{font-size:.875rem;color:var(--muted);line-height:1.6;}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--blue-dark);}
+#testimonials .section-title{color:white;}
+#testimonials .section-sub{color:rgba(255,255,255,.6);}
+#testimonials .section-label{color:var(--yellow);}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px;}
+.testi-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:28px;}
+.stars{color:var(--yellow);font-size:.95rem;margin-bottom:14px;letter-spacing:2px;}
+.testi-text{font-size:.9rem;line-height:1.72;color:rgba(255,255,255,.75);margin-bottom:20px;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--blue-dark);flex-shrink:0;}
+.testi-name{font-weight:600;font-size:.88rem;color:white;}
+.testi-loc{font-size:.76rem;color:rgba(255,255,255,.45);}
+
+/* ── FAQ ── */
+#faq{background:var(--cream);}
+.faq-list{margin-top:48px;max-width:760px;margin-left:auto;margin-right:auto;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:20px 0;font-family:'DM Sans',sans-serif;font-size:.97rem;font-weight:600;color:var(--blue);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-q .arrow{font-size:1.1rem;color:var(--gold);transition:transform .3s;flex-shrink:0;}
+.faq-q.open .arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-a.open{max-height:200px;}
+.faq-a p{padding:0 0 20px;font-size:.9rem;color:var(--muted);line-height:1.7;}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--yellow);padding:72px 48px;text-align:center;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--blue-dark);margin-bottom:14px;}
+.cta-band p{color:var(--blue);font-size:1rem;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-blue{background:var(--blue);color:white;padding:14px 32px;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s;}
+.btn-blue:hover{background:var(--blue-mid);transform:translateY(-2px);}
+.btn-blue-outline{border:2px solid var(--blue);color:var(--blue);padding:12px 28px;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s;}
+.btn-blue-outline:hover{background:var(--blue);color:white;}
+
+/* ── CONTACT ── */
+#contact{background:white;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:48px;align-items:start;}
+.info-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:24px;}
+.info-icon{width:42px;height:42px;background:var(--yellow-lt);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.info-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:2px;}
+.info-val{font-size:.93rem;font-weight:500;color:var(--text);}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:5px;letter-spacing:.04em;}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text);background:var(--cream);outline:none;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--blue-mid);}
+.form-group textarea{height:100px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.submit-btn{width:100%;padding:13px;background:var(--blue);color:white;border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .2s;}
+.submit-btn:hover{background:var(--blue-mid);}
+
+/* ── FOOTER ── */
+footer{background:var(--blue-dark);padding:56px 48px 32px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand p{color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.7;margin-top:14px;max-width:240px;}
+.footer-col h4{color:white;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:8px;}
+.footer-col ul li a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-col ul li a:hover{color:var(--yellow);}
+.footer-col p{color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.7;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{color:rgba(255,255,255,.35);font-size:.78rem;}
+.footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.78rem;}
+.footer-bottom a:hover{color:var(--yellow);}
+
+/* ── FADE IN ── */
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .nav-links{display:none;}
+  section{padding:56px 20px;}
+  .stats-bar{gap:28px;padding:20px;}
+  .badges-section{padding:28px 20px;}
+  .contact-grid{grid-template-columns:1fr;gap:36px;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px;}
+  .cta-band{padding:52px 20px;}
+  .hero{padding:90px 20px 48px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="8" fill="#f5c842"/>
+      <g stroke="white" stroke-width="1.8" stroke-linecap="round">
+        <line x1="18" y1="3" x2="18" y2="7"/>
+        <line x1="18" y1="29" x2="18" y2="33"/>
+        <line x1="3" y1="18" x2="7" y2="18"/>
+        <line x1="29" y1="18" x2="33" y2="18"/>
+        <line x1="6.5" y1="6.5" x2="9.5" y2="9.5"/>
+        <line x1="26.5" y1="26.5" x2="29.5" y2="29.5"/>
+        <line x1="29.5" y1="6.5" x2="26.5" y2="9.5"/>
+        <line x1="9.5" y1="26.5" x2="6.5" y2="29.5"/>
+      </g>
+    </svg>
+    <div class="logo-text">Rising Sun <span>Imports</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#inventory">Inventory</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="tel:9195550198" class="nav-phone">(919) 555-0198</a></li>
+    <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">⭐ Trusted by 500+ Raleigh Drivers</div>
+  <h1>Raleigh's Premier<br/><em>Import Dealership</em></h1>
+  <p>Curated Japanese, Korean & European imports — every vehicle inspected, CarFax verified, and priced with no games. Come find your next car.</p>
+  <div class="hero-btns">
+    <a href="#inventory" class="btn-yellow">Browse Inventory</a>
+    <a href="tel:9195550198" class="btn-white-outline">📞 (919) 555-0198</a>
+  </div>
+  <div class="trust-strip">
+    <div class="trust-item"><span class="dot"></span> Licensed & Bonded</div>
+    <div class="trust-item"><span class="dot"></span> 150-Point Inspection</div>
+    <div class="trust-item"><span class="dot"></span> No-Haggle Pricing</div>
+    <div class="trust-item"><span class="dot"></span> In-House Financing</div>
+    <div class="trust-item"><span class="dot"></span> CarFax on Every Car</div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Vehicles In Stock</div></div>
+  <div class="stat"><div class="stat-num">15 Yrs</div><div class="stat-label">Serving Raleigh</div></div>
+  <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Happy Customers</div></div>
+</div>
+
+<!-- TRUST BADGES -->
+<div class="badges-section">
+  <div class="badges-inner">
+    <div class="badge-item fade-up">
+      <div class="badge-icon">🔍</div>
+      <div class="badge-title">150-Point Inspection</div>
+    </div>
+    <div class="badge-item fade-up">
+      <div class="badge-icon">📋</div>
+      <div class="badge-title">Free CarFax Reports</div>
+    </div>
+    <div class="badge-item fade-up">
+      <div class="badge-icon">💰</div>
+      <div class="badge-title">No-Haggle Pricing</div>
+    </div>
+    <div class="badge-item fade-up">
+      <div class="badge-icon">🤝</div>
+      <div class="badge-title">In-House Financing</div>
+    </div>
+    <div class="badge-item fade-up">
+      <div class="badge-icon">🔑</div>
+      <div class="badge-title">Same-Day Approval</div>
+    </div>
+  </div>
+</div>
+
+<!-- INVENTORY -->
+<section id="inventory">
+  <div class="inventory-top fade-up">
+    <div>
+      <span class="section-label">Our Vehicles</span>
+      <h2 class="section-title">Featured Inventory</h2>
+      <p class="section-sub">Every car is inspected and CarFax verified. Stock updated weekly.</p>
+    </div>
+    <div class="filter-row">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Under $15K</button>
+      <button class="filter-btn">SUVs</button>
+      <button class="filter-btn">Sedans</button>
+      <button class="filter-btn">Under 50K mi</button>
+    </div>
+  </div>
+  <div class="car-grid">
+    <div class="car-card fade-up">
+      <div class="car-img" style="background:linear-gradient(135deg,#d6e8f7,#2c5f8a);">
+        <svg viewBox="0 0 80 40" fill="none"><path d="M5 28 Q10 10 25 8 L55 8 Q70 10 75 28 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="18" cy="30" r="6" stroke="white" stroke-width="2"/><circle cx="62" cy="30" r="6" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <div class="car-body">
+        <span class="car-badge-pill">Japanese Import</span>
+        <div class="car-name">2021 Toyota Camry XSE</div>
+        <div class="car-sub">V6 · Midnight Black · Loaded</div>
+        <div class="car-specs"><span>31,400 mi</span><span>Automatic</span><span>CarFax ✓</span></div>
+        <div class="car-footer"><div class="car-price">$26,900</div><button class="car-cta">View Details</button></div>
+      </div>
+    </div>
+    <div class="car-card fade-up">
+      <div class="car-img" style="background:linear-gradient(135deg,#fdf6d6,#c89400);">
+        <svg viewBox="0 0 80 40" fill="none"><path d="M3 30 Q8 12 20 9 L40 7 L60 9 Q72 12 77 30 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="17" cy="32" r="6" stroke="white" stroke-width="2"/><circle cx="63" cy="32" r="6" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <div class="car-body">
+        <span class="car-badge-pill">Korean Import</span>
+        <div class="car-name">2022 Hyundai Tucson SEL</div>
+        <div class="car-sub">AWD · Pearl White · Sunroof</div>
+        <div class="car-specs"><span>18,700 mi</span><span>Automatic</span><span>CarFax ✓</span></div>
+        <div class="car-footer"><div class="car-price">$29,500</div><button class="car-cta">View Details</button></div>
+      </div>
+    </div>
+    <div class="car-card fade-up">
+      <div class="car-img" style="background:linear-gradient(135deg,#d6e8f7,#1a3a5c 110%);">
+        <svg viewBox="0 0 80 40" fill="none"><path d="M5 28 L12 14 Q20 6 35 6 Q50 6 58 14 L75 28 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="20" cy="30" r="6" stroke="white" stroke-width="2"/><circle cx="60" cy="30" r="6" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <div class="car-body">
+        <span class="car-badge-pill">European Import</span>
+        <div class="car-name">2020 Volkswagen GTI SE</div>
+        <div class="car-sub">Turbo · Deep Blue · Sport Pkg</div>
+        <div class="car-specs"><span>44,200 mi</span><span>Manual</span><span>CarFax ✓</span></div>
+        <div class="car-footer"><div class="car-price">$24,750</div><button class="car-cta">View Details</button></div>
+      </div>
+    </div>
+    <div class="car-card fade-up">
+      <div class="car-img" style="background:linear-gradient(135deg,#fff8d6,#e6a800);">
+        <svg viewBox="0 0 80 40" fill="none"><path d="M4 30 Q10 10 28 8 L52 8 Q68 10 76 30 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="20" cy="32" r="6" stroke="white" stroke-width="2"/><circle cx="60" cy="32" r="6" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <div class="car-body">
+        <span class="car-badge-pill">Japanese Import</span>
+        <div class="car-name">2019 Honda Accord Sport</div>
+        <div class="car-sub">2.0T · Sonic Gray · 1-Owner</div>
+        <div class="car-specs"><span>52,800 mi</span><span>Automatic</span><span>CarFax ✓</span></div>
+        <div class="car-footer"><div class="car-price">$21,400</div><button class="car-cta">View Details</button></div>
+      </div>
+    </div>
+    <div class="car-card fade-up">
+      <div class="car-img" style="background:linear-gradient(135deg,#d6e8f7,#2c5f8a 120%);">
+        <svg viewBox="0 0 80 40" fill="none"><path d="M5 30 Q8 8 30 6 L50 6 Q72 8 75 30 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="18" cy="32" r="6" stroke="white" stroke-width="2"/><circle cx="62" cy="32" r="6" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <div class="car-body">
+        <span class="car-badge-pill">Korean Import</span>
+        <div class="car-name">2022 Kia Sorento EX</div>
+        <div class="car-sub">AWD · Snow White · 3rd Row</div>
+        <div class="car-specs"><span>22,100 mi</span><span>Automatic</span><span>CarFax ✓</span></div>
+        <div class="car-footer"><div class="car-price">$33,900</div><button class="car-cta">View Details</button></div>
+      </div>
+    </div>
+    <div class="car-card fade-up">
+      <div class="car-img" style="background:linear-gradient(135deg,#fff8d6,#c89400 120%);">
+        <svg viewBox="0 0 80 40" fill="none"><path d="M5 28 Q12 8 30 7 L50 7 Q68 8 75 28 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="19" cy="30" r="6" stroke="white" stroke-width="2"/><circle cx="61" cy="30" r="6" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <div class="car-body">
+        <span class="car-badge-pill">Japanese Import</span>
+        <div class="car-name">2021 Mazda CX-5 Grand</div>
+        <div class="car-sub">AWD · Soul Red · Premium Pkg</div>
+        <div class="car-specs"><span>27,600 mi</span><span>Automatic</span><span>CarFax ✓</span></div>
+        <div class="car-footer"><div class="car-price">$31,200</div><button class="car-cta">View Details</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="centered fade-up">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title">Our Simple 4-Step Process</h2>
+    <p class="section-sub">We make buying a used car easy, transparent, and stress-free — from the moment you arrive to the moment you drive away.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-card fade-up">
+      <div class="step-num">1</div>
+      <h3>Browse & Choose</h3>
+      <p>Explore our lot or call ahead. Every car has a full window sticker with CarFax and inspection results — no guessing.</p>
+    </div>
+    <div class="process-card fade-up">
+      <div class="step-num">2</div>
+      <h3>Test Drive</h3>
+      <p>Take it out for a real drive. No time limit, no pressure. We want you to feel confident before any decisions are made.</p>
+    </div>
+    <div class="process-card fade-up">
+      <div class="step-num">3</div>
+      <h3>Financing & Paperwork</h3>
+      <p>We work with all credit types. Our in-house financing team finds the best rate and walks you through every document.</p>
+    </div>
+    <div class="process-card fade-up">
+      <div class="step-num">4</div>
+      <h3>Drive Home Happy</h3>
+      <p>Keys in hand, same day. We follow up a week later to make sure everything is perfect — because that's how neighbors do business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="centered fade-up">
+    <span class="section-label">Customer Reviews</span>
+    <h2 class="section-title">What Raleigh Is Saying</h2>
+    <p class="section-sub">Don't just take our word for it — here's what Triangle drivers say about buying from Rising Sun.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Bought my Camry here last spring. Zero pressure, the car was exactly as described, and they followed up a week later to make sure everything was good. Best dealer experience I've had."</p>
+      <div class="testi-author"><div class="testi-avatar">JM</div><div><div class="testi-name">Jamie M.</div><div class="testi-loc">North Raleigh, NC</div></div></div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"The team was honest, patient, and helped me stay in budget without any upselling. I got financed in under an hour. My Tucson has been perfect since day one."</p>
+      <div class="testi-author"><div class="testi-avatar">TP</div><div><div class="testi-name">Tanya P.</div><div class="testi-loc">Cary, NC</div></div></div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"As a first-time buyer I was nervous, but Rising Sun made it so easy. They walked me through everything — the CarFax, the inspection report, the financing. Outstanding."</p>
+      <div class="testi-author"><div class="testi-avatar">DL</div><div><div class="testi-name">Derek L.</div><div class="testi-loc">Durham, NC</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="centered fade-up">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub">Answers to common questions about buying a car at Rising Sun Imports.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Do you offer financing for bad credit? <span class="arrow">▾</span></button>
+      <div class="faq-a"><p>Yes. We work with all credit situations — good, bad, or no credit history. Our in-house financing team will find the best available rate for you, and approvals are often same-day.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Are CarFax reports really free? <span class="arrow">▾</span></button>
+      <div class="faq-a"><p>Absolutely. Every vehicle on our lot comes with a complimentary full CarFax report — accidents, ownership history, service records, and title information included.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I bring my own mechanic to inspect a car? <span class="arrow">▾</span></button>
+      <div class="faq-a"><p>Of course. We encourage it. We're confident in our 150-point inspections and have nothing to hide. Bring your mechanic or arrange a third-party inspection anytime.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will you buy or trade in my current vehicle? <span class="arrow">▾</span></button>
+      <div class="faq-a"><p>Yes! We accept trade-ins and will give you a fair market offer on your current car. Bring it in and we'll appraise it on the spot — no obligation required.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How often does your inventory change? <span class="arrow">▾</span></button>
+      <div class="faq-a"><p>We add new vehicles every week. If you don't see exactly what you want, call or message us and we'll let you know as soon as something matching your needs comes in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to Find Your Next Car?</h2>
+  <p>Stop by our Raleigh lot or call us today. No pressure, no games — just great cars and honest people.</p>
+  <div class="cta-btns">
+    <a href="#inventory" class="btn-blue">Browse Inventory</a>
+    <a href="#contact" class="btn-blue-outline">Contact Us</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-label">Get In Touch</span>
+  <h2 class="section-title fade-up">Come See Us in Raleigh</h2>
+  <p class="section-sub fade-up">We'd love to meet you. Stop by the lot, give us a call, or send a message.</p>
+  <div class="contact-grid">
+    <div class="fade-up">
+      <div class="info-item"><div class="info-icon">📍</div><div><div class="info-label">Address</div><div class="info-val">4821 Capital Blvd, Raleigh, NC 27604</div></div></div>
+      <div class="info-item"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-val">(919) 555-0198</div></div></div>
+      <div class="info-item"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-val">hello@risingsunimports.com</div></div></div>
+      <div class="info-item"><div class="info-icon">🕐</div><div><div class="info-label">Hours</div><div class="info-val">Mon–Sat: 9am – 7pm<br/>Sunday: 11am – 5pm</div></div></div>
+    </div>
+    <div class="fade-up">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"/></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="jane@example.com"/></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(919) 000-0000"/></div>
+      <div class="form-group"><label>I'm interested in…</label>
+        <select><option>Browsing the inventory</option><option>A specific vehicle</option><option>Financing options</option><option>Trading in my car</option><option>Just saying hi</option></select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us what you're looking for…"></textarea></div>
+      <button class="submit-btn">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo-text" style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:white;">Rising Sun <span style="color:#f5c842">Imports</span></div>
+      <p>Your trusted used import dealer serving Raleigh and the Triangle area of North Carolina since 2009.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Inventory</h4>
+      <ul>
+        <li><a href="#">Japanese Imports</a></li>
+        <li><a href="#">Korean Imports</a></li>
+        <li><a href="#">European Imports</a></li>
+        <li><a href="#">SUVs & Crossovers</a></li>
+        <li><a href="#">Under $15,000</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#inventory">Inventory</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>4821 Capital Blvd<br/>Raleigh, NC 27604<br/><br/>(919) 555-0198<br/>hello@risingsunimports.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Rising Sun Imports. All rights reserved.</p>
+    <div style="display:flex;gap:20px;"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Dealer License #NC12345</a></div>
+  </div>
+</footer>
+
+<script>
+// Scroll fade-in
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const answer=btn.nextElementSibling;
+    const isOpen=btn.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open');});
+    if(!isOpen){btn.classList.add('open');answer.classList.add('open');}
+  });
+});
+</script>
+</body>
+</html>
